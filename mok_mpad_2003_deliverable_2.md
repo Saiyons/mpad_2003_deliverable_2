@@ -1,11 +1,13 @@
-**Date**<br>
-**Course Code & Course Name**<br>
-**Student's First Name & Last Name**<br>
+**November 5th, 2026**<br>
+**MPAD 2003 A**<br>
+**Saiyon Mok**<br>
 **Presented to Jean-Sébastien Marier**<br>
 
 # Deliverable 2: Exploratory Data Analysis (EDA)
 
 Use one hashtag symbol (`#`) to create a level 1 heading like this one.
+
+# Level 1 Heading Johnny Test
 
 ## Foreword
 
