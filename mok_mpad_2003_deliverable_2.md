@@ -5,18 +5,11 @@
 
 # Deliverable 2: Exploratory Data Analysis (EDA)
 
-## Foreword
-
-For this assignment, you must clean and analyze the dataset from Deliverable 1, create exploratory charts/visualizations, and identify a potential story. Your assignment must clearly detail your process. You are expected to write about 1,000-1,200 words, and to include several screen captures showing the different steps you went through. Your assignment must be written with the Markdown format and submitted on GitHub.
-
-I have been assigning different versions of this project to my digital journalism and data storytelling students for a few years now. Its structure was inspired by the main sections/chapters of [*The Data Journalism Handbook*](https://datajournalism.com/read/handbook/one/). This version was further inspired by the [Key Capabilities in Data Science](https://extendedlearning.ubc.ca/programs/key-capabilities-data-science) program offered by the University of British Columbia (UBC).
 
 **Here are some useful resources for this assignment:**
 
 * [GitHub's *Basic writing and formatting syntax* page](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 * [The template repository for this assignment in case you delete something by mistake](https://github.com/jsmarier/jou4100_jou4500_mpad2003_project2_template)
-
-Did you notice how to create a hyperlink? In Markdown, we put the clickable text between square brackets and the actual URL between parentheses.
 
 And to create an unordered list, we simply put a star (`*`) before each item.
 
@@ -99,6 +92,8 @@ With that done, I will then adjust all column lengths to fit the text proportion
 
 First I will correct some capitalization of the locations using the find and replace tool and then split the column in 2 by inserting 2 new columns to its right and then using the =SPLIT function. Since “-” is the separator, I will have to replace that with “>” as road names may be hyphenated.
 
+![](findAndReplace.png)
+
 ``` r
 =(SPLIT(AS, ">"))
 ```
@@ -111,7 +106,17 @@ Now, I want to attempt to get rid of some invalid or missing values with OpenRef
 
 ![](sheetsPostCleanup.png)
 
+I will now redownload this spreadsheet as a .csv and then open it as a project on OpenRefine. I will then select the dropdown menu of the AvgSpeed column and navigate towards the text filter. This will now open a side panel that I can insert N/A into and get all rows which have that.
 
+![](openRefineTextFilter.png)
+
+![](openRefineRemoveMatching.png)
+
+I will then remove all matching rows, remove the text filter, and redownload the dataset as a .csv to reopen in a new section of my Google Sheet called “After OpenRefine”.
+
+![](cleaningComplete.png)
+
+We now have a fully cleaned dataset.
 
 ### 2.3. Analyzing Data
 
