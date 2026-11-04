@@ -7,7 +7,7 @@
 
 Use one hashtag symbol (`#`) to create a level 1 heading like this one.
 
-# Level 1 Heading Johnny Test
+# Johnny Test Heading 1
 
 ## Foreword
 
@@ -25,6 +25,56 @@ Did you notice how to create a hyperlink? In Markdown, we put the clickable text
 And to create an unordered list, we simply put a star (`*`) before each item.
 
 ## 1. Getting Data
+
+### Context
+This EDA acts as a follow-up to MPAD 2003 A's first assignment, which involved the introduction of a specific City of Ottawa dataset to create a data story from.
+
+I chose a database about Automated Speed Enforcement (ASE) cameras, plotting the locations of all ASE cameras that existed in the city of Ottawa up until November 1st, 2025.
+
+### Importing the database
+
+#### Database Link
+[Automated Speed Enforcement Camera - Speed Data](https://open.ottawa.ca/datasets/432723dbabc64909a075956eccd4ee03_0/explore?location=45.277107%2C-75.756363%2C5)
+
+#### Process
+
+To import the dataset, we can navigate towards the dataset with the provided link above.
+
+![](importStep1.png)<br>
+
+Head over to the left panel and hit the download button, just below the database's summary section.
+
+![](importStep2.png)<br>
+
+Now, a dropdown selection on the panel with multiple formats. I will elect to download it as a .csv file.
+
+![](importStep3.png)<br>
+
+We are now able to open it with Google Sheets.
+
+![](importStep4.png)<br>
+
+#### Observations
+![](initialImport.png)
+
+There are 12 columns and 1720 rows excluding the column titles.
+
+Camera locations are prefixed as "E### - Location" and have consistent installment year, coordinates, and recording date formatting. Speed measurements are wonky, but do not go above 2 decimals.
+
+There exist 1720 total data entries on specific batch dates for. Column A denotes which specific camera said entry correlates to.
+
+Column G will then determine the date of which the data entry was created.
+
+Then, four columns to the right of Column G are measurements that have been compiled from the camera's installment, up its data entry creation. Column H denotes the total average speeds a camera has measured.
+
+#### Potential questions
+
+1. Which areas have a higher proportion of violators?
+2. Where do high-end speeders proliferate?
+
+
+## Dividing Line
+
 
 Use two hashtag symbols (`##`) to create a level 2 heading like this one.
 
