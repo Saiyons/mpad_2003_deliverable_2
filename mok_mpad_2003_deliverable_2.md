@@ -5,10 +5,6 @@
 
 # Deliverable 2: Exploratory Data Analysis (EDA)
 
-Use one hashtag symbol (`#`) to create a level 1 heading like this one.
-
-# Johnny Test Heading 1
-
 ## Foreword
 
 For this assignment, you must clean and analyze the dataset from Deliverable 1, create exploratory charts/visualizations, and identify a potential story. Your assignment must clearly detail your process. You are expected to write about 1,000-1,200 words, and to include several screen captures showing the different steps you went through. Your assignment must be written with the Markdown format and submitted on GitHub.
@@ -72,41 +68,17 @@ Then, four columns to the right of Column G are measurements that have been comp
 1. Which areas have a higher proportion of violators?
 2. Where do high-end speeders proliferate?
 
-
-## Dividing Line
-
-
-Use two hashtag symbols (`##`) to create a level 2 heading like this one.
-
-To include a screen capture, use the sample code below. Your images should be saved in the same folder as your `.md` file.
-
-![](import-screen-capture.png)<br>
-*Figure 1: The "Import file" prompt on Google Sheets.*
-
-**Here are examples of functions and lines of code put in grey boxes:**
-
-1. If you name a function, put it between "angled" quotation marks like this: `IMPORTHTML`.
-1. If you want to include the entire line of code, do the same thing, albeit with your entire code: `=IMPORTHTML("https://en.wikipedia.org/wiki/China"; "table", 5)`.
-1. Alternatively, you can put your code in an independent box using the template below:
-
-``` r
-=IMPORTHTML("https://en.wikipedia.org/wiki/China"; "table", 5)
-```
-This also shows how to create an ordered list. Simply put `1.` before each item.
-
 ## 2. Understanding Data
 
 ### 2.1. VIMO Analysis
 
-Use three hashtag symbols (`###`) to create a level 3 heading like this one. Please follow this template when it comes to level 1 and level 2 headings. However, you can use level 3 headings as you see fit.
+According to the Government of Canada, a VIMO analysis is representative as an acronym when first analyzing data, referring to variables that can be classified as Valid, Invalid, Missing, or Outlier variables (Government of Canada, 2020).
 
-Insert text here.
+Using VIMO to analyze data can be crucial in ensuring the accuracy of data as it must adequately reflect reality (Government of Canada, 2020). When data is considered accurate, it means it is correctly representative of reality and cannot include any blank and missing values (Government of Canada, 2020). 
 
-Support your claims by citing relevant sources. Please follow [APA guidelines for in-text citations](https://apastyle.apa.org/style-grammar-guidelines/citations).
+After a quick scroll of the dataset in its entirety, the majority of it seems rather fine. All entries have a corresponding location in column A, all camera installment years are between 2020-2025, all Earth coordinates and longitudinal/latitudinal values are within the same proximity, and all listed data entry dates are between 2020-2025 with no month values surpassing 12 and going below 1.
 
-**For example:**
-
-As seen in Bounegru & Gray (2011), a data visualization should be clear...
+Something to look out for is past column G and into the recorded speed values. There do exist invalid “N/A” values in AvgSpeed and PctCompliance, then affecting the Pct85th and PctHighEndSpeeders values to be set to 0. Those data entries will then have to be cleaned up.
 
 ### 2.2. Cleaning Data
 
