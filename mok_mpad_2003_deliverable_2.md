@@ -53,6 +53,9 @@ We are now able to open it with Google Sheets.
 #### Observations
 ![](initialImport.png)
 
+#### Spreadsheet Link
+[MPAD2003 // City of Ottawa EDA Database](https://docs.google.com/spreadsheets/d/1f-K3tJ7xI2piDXfMJbYoD6t6VikYi9w_U7Z1MIbGSxg/edit?usp=sharing)
+
 There are 12 columns and 1720 rows excluding the column titles.
 
 Camera locations are prefixed as "E### - Location" and have consistent installment year, coordinates, and recording date formatting. Speed measurements are wonky, but do not go above 2 decimals.
@@ -82,7 +85,33 @@ Something to look out for is past column G and into the recorded speed values. T
 
 ### 2.2. Cleaning Data
 
-Insert text here.
+For the purposes of cleaning this dataset, I will make a duplicate of it which I will dub the Experimentation Zone to distinguish it from what it first looked like during the initial import.
+
+![](experimentationZone.png)
+
+#### Cleaning in Google Sheets
+
+I will first start cleaning the dataset within Google Sheets. There exist a few inconsistencies for column A in relation to whitespacing for the locations of cameras, which Google Sheets can automatically fix.
+
+![](sheetsAutoCleanup.png)
+
+With that done, I will then adjust all column lengths to fit the text proportions, but that now leaves me with a colossal column A that houses both a general location and camera code. 
+
+First I will correct some capitalization of the locations using the find and replace tool and then split the column in 2 by inserting 2 new columns to its right and then using the =SPLIT function. Since “-” is the separator, I will have to replace that with “>” as road names may be hyphenated.
+
+``` r
+=(SPLIT(AS, ">"))
+```
+
+![](splitExample.png)
+
+Values are then pasted as such, and column A is deleted. 
+
+Now, I want to attempt to get rid of some invalid or missing values with OpenRefine. This is what the dataset looks like currently:
+
+![](sheetsPostCleanup.png)
+
+
 
 ### 2.3. Analyzing Data
 
