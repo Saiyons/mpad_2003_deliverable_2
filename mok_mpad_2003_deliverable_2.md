@@ -3,15 +3,9 @@
 **Saiyon Mok**<br>
 **Presented to Jean-Sébastien Marier**<br>
 
-# Deliverable 2: Exploratory Data Analysis (EDA)
+# Deliverable 2: Exploratory Data Analysis (EDA) - MPAD 2003 A
 
-
-**Here are some useful resources for this assignment:**
-
-* [GitHub's *Basic writing and formatting syntax* page](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-* [The template repository for this assignment in case you delete something by mistake](https://github.com/jsmarier/jou4100_jou4500_mpad2003_project2_template)
-
-And to create an unordered list, we simply put a star (`*`) before each item.
+Exploratory Data Analysis (EDA) concerning Automated Speed Enforcement Cameras in the City of Ottawa
 
 ## 1. Getting Data
 
@@ -94,8 +88,9 @@ First I will correct some capitalization of the locations using the find and rep
 
 ![](findAndReplace.png)
 
+Ultimately the 1st set of brackets is redundant, but I put it in as such:
 ``` r
-=(SPLIT(AS, ">"))
+=(SPLIT(A2, ">"))
 ```
 
 ![](splitExample.png)
@@ -120,25 +115,41 @@ We now have a fully cleaned dataset.
 
 ### 2.3. Analyzing Data
 
-Insert text here.
 
-**This section should include a screen capture of your pivot table, like so:**
+This analysis component of this EDA will now include a pivot table and exploratory chart.
 
-![](pivot-table-screen-capture.png)<br>
-*Figure 2: This pivot table shows...*
 
-**This section should also include a screen capture of your exploratory chart, like so:**
+#### Pivot Table
+![](pivotTable.png)
+*Figure 1: Cameras E001-E060 and MAX average speeds, MIN average speeds, MAX compliance%, MIN compliance%, and AVERAGE speeds over their existence*
 
-![](chart-screen-capture.png)<br>
-*Figure 3: This exploratory chart shows...*
+This pivot table primarily covers all unique camera codes and compiles the maximum/minimum average speeds and compliance percentages recorded for every data entry of each corresponding camera code with an accompanying total average. 
+
+I'm mainly curious on potential outlying numbers and if there would be any extremes, but I must be aware that the minimum and maximum of a value is very dependent on the nature of the area it's placed in; mainly its speed limit.
+
+Another variable to put some interest towards is if we can attribute any extreme recorded numbers to a specific date. For example, if there was an outlying very low percentage of compliance for a given camera, would this have occured just after the camera was been installed or during its first recorded data entry?
+
+#### Exploratory Chart
+![](exploratoryChartKai.png)
+*Figure 2: Camera E001's AVERAGE speed between all recorded entry dates*
+
+More on comparing values of a camera from given dates, this exploratory chart analyzes the relation of a singular camera, E001's compliance% over the many data entries corresponding to E001 from 2020-2025.
+
+This is an example on how we are able to look at specific camera locations over their entire existence instead of just multiple cameras within one timeframe.
+
+Here demonstrates a steady increase into a plateau around 90% compliance after starting with 50%. This makes sense, as not everyone will be aware of an ASE camera right away, but as time passes, awareness progressively climbs and along with it, compliance does too.
+
+A question that I'd have in relation for this would be if other cameras would have very similar patterns. 
+
+Is the 90% area really the equilibrium once people have adjusted? Would cameras installed during the later years ASE was introduced share this same low initial compliance percentage, or would it not be as low since ASE has already had some time to be introduced to the city?
 
 ## 3. Delivering Data
 
-Insert text here.
+
 
 ## 4. References
 
-Include a list of your references here. Please follow [APA](https://apastyle.apa.org/style-grammar-guidelines/references) or [MLA](https://www.mla.org/MLA-Style) guidelines for references. Hanging paragraphs aren't required though.
+Include a list of your references here. Please follow [APA](https://apastyle.apa.org/style-grammar-guidelines/references) guidelines for references. Hanging paragraphs aren't required though.
 
 **Here's an example:**
 
