@@ -51,7 +51,7 @@ There exist 1720 total data entries on specific batch dates for. Column A denote
 
 Column G will then determine the date of which the data entry was created.
 
-Then, four columns to the right of Column G are measurements that have been compiled from the camera's installment, up its data entry creation. Column H denotes the total average speeds a camera has measured.
+Then, four columns to the right of Column G are measurements that have been compiled from the camera's installment, up to its data entry creation. Column H denotes the total average speeds a camera has measured.
 
 #### Potential questions
 
@@ -64,11 +64,11 @@ Then, four columns to the right of Column G are measurements that have been comp
 
 According to the Government of Canada, a VIMO analysis is representative as an acronym when first analyzing data, referring to variables that can be classified as Valid, Invalid, Missing, or Outlier variables (Government of Canada, 2020).
 
-Using VIMO to analyze data can be crucial in ensuring the accuracy of data as it must adequately reflect reality (Government of Canada, 2020). When data is considered accurate, it means it is correctly representative of reality and cannot include any blank and missing values (Government of Canada, 2020). 
+Using VIMO to analyze data can be crucial in ensuring the accuracy of data as it must adequately reflect reality and cannot include any blank and missing values (Government of Canada, 2020).
 
-After a quick scroll of the dataset in its entirety, the majority of it seems rather fine. All entries have a corresponding location in column A, all camera installment years are between 2020-2025, all Earth coordinates and longitudinal/latitudinal values are within the same proximity, and all listed data entry dates are between 2020-2025 with no month values surpassing 12 and going below 1.
+All entries have a corresponding location in column A, all camera installment years are between 2020-2025, all Earth coordinates and longitudinal/latitudinal values are within the same proximity, and all listed data entry dates are between 2020-2025 with no month values surpassing 12 and going below 1.
 
-Something to look out for is past column G and into the recorded speed values. There do exist invalid “N/A” values in AvgSpeed and PctCompliance, then affecting the Pct85th and PctHighEndSpeeders values to be set to 0. Those data entries will then have to be cleaned up.
+Something to look out for is past column G and into the recorded speed values. There do exist invalid “N/A” values in AvgSpeed and PctCompliance, then affecting the Pct85th and PctHighEndSpeeders values to be set to 0.
 
 ### 2.2. Cleaning Data
 
@@ -84,7 +84,7 @@ I will first start cleaning the dataset within Google Sheets. There exist a few 
 
 With that done, I will then adjust all column lengths to fit the text proportions, but that now leaves me with a colossal column A that houses both a general location and camera code. 
 
-First I will correct some capitalization of the locations using the find and replace tool and then split the column in 2 by inserting 2 new columns to its right and then using the =SPLIT function. Since “-” is the separator, I will have to replace that with “>” as road names may be hyphenated.
+First I will correct some capitalization of the locations using the find and replace tool and then split the column in 2 by inserting 2 new columns to its right alongside the =SPLIT function. Since “ - ” is the separator, I will have to replace that with “ > ” as road names may be hyphenated.
 
 ![](findAndReplace.png)
 
@@ -95,7 +95,7 @@ Ultimately the 1st set of brackets is redundant, but I put it in as such:
 
 ![](splitExample.png)
 
-Values are then pasted as such, and column A is deleted. 
+The split variables are pasted back as pure values, and column A is deleted. 
 
 Now, I want to attempt to get rid of some invalid or missing values with OpenRefine. This is what the dataset looks like currently:
 
@@ -121,21 +121,23 @@ This analysis component of this EDA will now include a pivot table and explorato
 
 #### Pivot Table
 ![](pivotTable.png)
+
 *Figure 1: Cameras E001-E060 and MAX average speeds, MIN average speeds, MAX compliance%, MIN compliance%, and AVERAGE speeds over their existence*
 
-This pivot table primarily covers all unique camera codes and compiles the maximum/minimum average speeds and compliance percentages recorded for every data entry of each corresponding camera code with an accompanying total average. 
+This pivot table primarily covers all unique camera codes and compiles the maximum/minimum average speeds and compliance percentages recorded for every data entry.
 
-I'm mainly curious on potential outlying numbers and if there would be any extremes, but I must be aware that the minimum and maximum of a value is very dependent on the nature of the area it's placed in; mainly its speed limit.
+I'm mainly curious on potential outlying numbers and if there would be any extremes, but minimums and maximums can be dependent on the nature of the area a camera is placed in; mainly its speed limit.
 
-Another variable to put some interest towards is if we can attribute any extreme recorded numbers to a specific date. For example, if there was an outlying very low percentage of compliance for a given camera, would this have occured just after the camera was been installed or during its first recorded data entry?
+Another thing is if we can attribute any extreme recorded numbers to a specific date. For example, if there was an outlying very low percentage of compliance for a given camera, would this have occured just after the camera was been installed or during its first recorded data entry?
 
 #### Exploratory Chart
 ![](exploratoryChartKai.png)
+
 *Figure 2: Camera E001's AVERAGE speed between all recorded entry dates*
 
-More on comparing values of a camera from given dates, this exploratory chart analyzes the relation of a singular camera, E001's compliance% over the many data entries corresponding to E001 from 2020-2025.
+More on comparing values of a camera from given dates, this exploratory chart analyzes the relation of a singular camera, E001's compliance% over its many data entries from 2020-2025.
 
-This is an example on how we are able to look at specific camera locations over their entire existence instead of just multiple cameras within one timeframe.
+We are also able to look at specific camera locations over their entire existence instead of just multiple cameras within one timeframe.
 
 Here demonstrates a steady increase into a plateau around 90% compliance after starting with 50%. This makes sense, as not everyone will be aware of an ASE camera right away, but as time passes, awareness progressively climbs and along with it, compliance does too.
 
@@ -145,12 +147,17 @@ Is the 90% area really the equilibrium once people have adjusted? Would cameras 
 
 ## 3. Delivering Data
 
+A large portion of this story would probably have to compare statistics of what it was like having ASE in that 5 year stretch in comparison to the immediate aftermath. 
 
+A large part of how ASE affected Ottawa can only be completed when we have access to measured data when it comes to Ottawa’s driving habits with a lack thereof, especially since ASE has now been decommissioned.
+
+My next course of research would then start with mainstream reports on how stakeholders react with the changes that decommissioning ASE has brought, such as Ottawa police’s struggles with city enforcement coverage without automated enforcement as highlighted in both Justin Ball and Lynn Saxberg’s articles (Ball, 2026; Saxberg, 2026), or considering how Ottawa might struggle with developing physical traffic calmers up until 2027 as per Ted Raymond’s article (Raymond, 2026). 
+
+Though I do not know specific people for potential interviews, it’d be best to have it geared towards stakeholders of that calibre, such as a concerned neighborhood parent or school principal who has been able to observe a notable difference in driver behavior, or a police officer who has prior knowledge of how ASE systems might have or have not assisted road safety enforcement.
 
 ## 4. References
 
-Include a list of your references here. Please follow [APA](https://apastyle.apa.org/style-grammar-guidelines/references) guidelines for references. Hanging paragraphs aren't required though.
-
-**Here's an example:**
-
-Bounegru, L., & Gray, J. (Eds.). (2021). *The Data Journalism Handbook 2: Towards A Critical Data Practice*. Amsterdam University Press. [https://ocul-crl.primo.exlibrisgroup.com/permalink/01OCUL_CRL/hgdufh/alma991022890087305153](https://ocul-crl.primo.exlibrisgroup.com/permalink/01OCUL_CRL/hgdufh/alma991022890087305153)
+Ball, J. (2026, November 3). Speed camera ban makes traffic enforcement harder, says Ottawa police chief. CBC Lite. Retrieved November 5, 2026, from [https://www.cbc.ca/lite/story/9.7406785](https://www.cbc.ca/lite/story/9.7406785)
+Government of Canada. (2020, September 23). Data Accuracy and Validation: Methods to ensure the quality of data. Statistics Canada. [https://www.statcan.gc.ca/en/wtc/data-literacy/catalogue/892000062020008](https://www.statcan.gc.ca/en/wtc/data-literacy/catalogue/892000062020008)
+Raymond, T. (2026, November 4). Traffic calming at former speed camera sites in Ottawa not expected to be complete until end of 2027: City. CTV News. [https://www.ctvnews.ca/ottawa/article/traffic-calming-at-former-speed-camera-sites-in-ottawa-not-expected-to-be-complete-until-end-of-2027-city/](https://www.ctvnews.ca/ottawa/article/traffic-calming-at-former-speed-camera-sites-in-ottawa-not-expected-to-be-complete-until-end-of-2027-city/)
+Saxberg, L. (2026, November 3). Ottawa police can't compete with speed cameras in traffic enforcement. Ottawa Citizen. Retrieved November 5, 2026, from [https://ottawacitizen.com/news ottawa-police-need-new-officers-to-enforce-school-zone-speeding](https://ottawacitizen.com/news-ottawa-police-need-new-officers-to-enforce-school-zone-speeding)
